@@ -1112,7 +1112,7 @@ const db  = getFirestore(app);
 /* ── EmailJS 초기화 ── */
 // ⚠️ EmailJS 설정 후 아래 값을 교체하세요 (emailjs.com → Account → Public Key)
 const EMAILJS_PUBLIC_KEY   = 'nmwqoFL7PQ8YM7AKK';
-const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';   // ← 교체 필요
+const EMAILJS_SERVICE_ID   = 'service_x9q3omk';
 const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';  // ← 교체 필요
 
 if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
@@ -1166,16 +1166,19 @@ if (form) {
 
       /* 2) EmailJS 이메일 알림 전송 (설정된 경우) */
       if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+        const mailParams = {
+          from_name:    contactData.name,
+          from_org:     contactData.org,
+          from_tel:     contactData.tel,
+          inquiry_type: contactData.type,
+          message:      contactData.message,
+          submit_time:  new Date().toLocaleString('ko-KR')
+        };
         try {
-          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-            to_email:    'super301c@naver.com',
-            from_name:   contactData.name,
-            from_org:    contactData.org,
-            from_tel:    contactData.tel,
-            inquiry_type: contactData.type,
-            message:     contactData.message,
-            submit_time: new Date().toLocaleString('ko-KR')
-          });
+          await Promise.all([
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...mailParams, to_email: 'super301c@naver.com' }),
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...mailParams, to_email: 'super301cc@gmail.com' })
+          ]);
         } catch(mailErr) {
           console.warn('이메일 알림 전송 실패 (Firestore는 저장됨):', mailErr);
         }
