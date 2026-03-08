@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/drchoidjintro.html" },
+    { "source": "/drchoidjintro", "destination": "/drchoidjintro.html" },
+    { "source": "/admin", "destination": "/admin.html" }
+  ]
+}
