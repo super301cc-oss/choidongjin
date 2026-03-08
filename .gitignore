@@ -1,0 +1,10 @@
+# 불필요한 파일 제외
+files.zip
+screenshot.png
+screenshot.ps1
+screenshot_full.png
+screenshot_hero.png
+*.pptx
+*.hwp
+*.pdf
+*.txt
