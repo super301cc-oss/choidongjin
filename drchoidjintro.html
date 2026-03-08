@@ -1238,7 +1238,7 @@ if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 }
 
-/* ── 방문자 자동 기록 ── */
+/* ── 방문자 자동 기록 (IP·위치 포함) ── */
 (async function trackVisit() {
   try {
     const d = new Date();
@@ -1247,11 +1247,29 @@ if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
       + String(d.getDate()).padStart(2,'0');
     const ua = navigator.userAgent;
     const device = /Mobi|Android/i.test(ua) ? '모바일' : '데스크톱';
+
+    /* IP & 위치 정보 조회 */
+    let ip = '—', city = '—', region = '—', country = '—';
+    try {
+      const geo = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(4000) });
+      if (geo.ok) {
+        const g = await geo.json();
+        ip      = g.ip      || '—';
+        city    = g.city    || '—';
+        region  = g.region  || '—';
+        country = g.country_name || g.country || '—';
+      }
+    } catch(_) { /* 위치 조회 실패 시 무시 */ }
+
     await addDoc(collection(db,'visits'), {
       page:      window.location.pathname || '/',
       referrer:  document.referrer || '직접 방문',
       device,
       dateKey,
+      ip,
+      city,
+      region,
+      country,
       visitedAt: Timestamp.now()
     });
   } catch(e) { /* Firebase 미설정 시 무시 */ }

@@ -311,7 +311,7 @@
           <canvas id="visitChart"></canvas>
         </div>
       </div>
-      <div class="visit-summary">
+      <div class="visit-summary" style="grid-template-columns:repeat(2,1fr);">
         <div class="info-card">
           <h3>날짜별 방문 수</h3>
           <div id="visitList"><div class="empty-msg">불러오는 중...</div></div>
@@ -320,14 +320,22 @@
           <h3>유입 경로 TOP 5</h3>
           <div id="refererList"><div class="empty-msg">불러오는 중...</div></div>
         </div>
+        <div class="info-card">
+          <h3>🌍 접속 국가 TOP 5</h3>
+          <div id="countryList"><div class="empty-msg">불러오는 중...</div></div>
+        </div>
+        <div class="info-card">
+          <h3>📍 접속 도시 TOP 5</h3>
+          <div id="cityList"><div class="empty-msg">불러오는 중...</div></div>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>방문일시</th><th>페이지</th><th>유입 경로</th><th>기기</th></tr>
+            <tr><th>방문일시</th><th>페이지</th><th>유입 경로</th><th>기기</th><th>IP</th><th>국가</th><th>지역</th><th>도시</th></tr>
           </thead>
           <tbody id="visitsBody">
-            <tr><td colspan="4" class="empty-msg">불러오는 중...</td></tr>
+            <tr><td colspan="8" class="empty-msg">불러오는 중...</td></tr>
           </tbody>
         </table>
       </div>
@@ -619,7 +627,9 @@
 
   async function loadVisits() {
     const snap = await getDocs(query(collection(db,'visits'), orderBy('visitedAt','desc'), limit(200)));
-    const rows = []; const byDate = {}; const byRef = {}; let todayCount = 0;
+    const rows = [];
+    const byDate = {}, byRef = {}, byCountry = {}, byCity = {};
+    let todayCount = 0;
     const today = todayKey();
 
     snap.forEach(d => {
@@ -627,8 +637,9 @@
       rows.push(r);
       const dk = r.dateKey || '—';
       byDate[dk] = (byDate[dk] || 0) + 1;
-      const ref = r.referrer || '직접 방문';
-      byRef[ref] = (byRef[ref] || 0) + 1;
+      byRef[r.referrer || '직접 방문'] = (byRef[r.referrer || '직접 방문'] || 0) + 1;
+      if (r.country && r.country !== '—') byCountry[r.country] = (byCountry[r.country] || 0) + 1;
+      if (r.city    && r.city    !== '—') byCity[r.city]       = (byCity[r.city]       || 0) + 1;
       if (dk === today) todayCount++;
     });
 
@@ -664,25 +675,34 @@
       }
     });
 
-    // 날짜별 목록
+    const renderList = (map, elId, top=5) => {
+      const entries = Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,top);
+      document.getElementById(elId).innerHTML = entries.length
+        ? entries.map(([k,c])=>`<div class="visit-row"><span style="overflow:hidden;text-overflow:ellipsis;max-width:200px;">${esc(k)}</span><span class="visit-num">${c}회</span></div>`).join('')
+        : '<div class="empty-msg">데이터 없음</div>';
+    };
+
+    // 날짜별
     document.getElementById('visitList').innerHTML = last7.length
       ? [...last7].reverse().map(([d,c])=>`<div class="visit-row"><span>${d}</span><span class="visit-num">${c}회</span></div>`).join('')
       : '<div class="empty-msg">데이터 없음</div>';
 
-    // 유입 경로
-    const refs = Object.entries(byRef).sort((a,b)=>b[1]-a[1]).slice(0,5);
-    document.getElementById('refererList').innerHTML = refs.length
-      ? refs.map(([r,c])=>`<div class="visit-row"><span style="overflow:hidden;text-overflow:ellipsis;max-width:200px;">${esc(r)}</span><span class="visit-num">${c}회</span></div>`).join('')
-      : '<div class="empty-msg">데이터 없음</div>';
+    renderList(byRef,     'refererList');
+    renderList(byCountry, 'countryList');
+    renderList(byCity,    'cityList');
 
     const tbody = document.getElementById('visitsBody');
     tbody.innerHTML = rows.slice(0,50).map(r => `
       <tr>
         <td>${fmtDate(r.visitedAt)}</td>
         <td>${esc(r.page||'/')}</td>
-        <td>${esc(r.referrer||'직접 방문')}</td>
+        <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(r.referrer||'직접 방문')}</td>
         <td>${esc(r.device||'—')}</td>
-      </tr>`).join('') || '<tr><td colspan="4" class="empty-msg">방문 기록이 없습니다</td></tr>';
+        <td style="font-family:'Inter',sans-serif;font-size:0.82rem;">${esc(r.ip||'—')}</td>
+        <td>${esc(r.country||'—')}</td>
+        <td>${esc(r.region||'—')}</td>
+        <td>${esc(r.city||'—')}</td>
+      </tr>`).join('') || '<tr><td colspan="8" class="empty-msg">방문 기록이 없습니다</td></tr>';
   }
 
   // ══════════════════════════════════════════════════════
