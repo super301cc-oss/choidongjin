@@ -670,7 +670,7 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
             <th>주관</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="lectures-tbody">
           <tr>
             <td><div class="lec-date">2010~2018</div></td>
             <td>Project Management</td>
@@ -708,7 +708,7 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
       </div>
       <div class="section-num">05</div>
     </div>
-    <div class="books-grid reveal">
+    <div class="books-grid reveal" id="books-grid">
       <div class="book-card">
         <div class="book-spine"></div>
         <div class="book-inner">
@@ -1176,11 +1176,57 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 <script src="firebase-config.js"></script>
 <script type="module">
 import { initializeApp }     from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, Timestamp }
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, Timestamp }
                              from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const app = initializeApp(FIREBASE_CONFIG);
 const db  = getFirestore(app);
+
+/* ── Firestore 강의 이력 동적 추가 ── */
+(async function loadLectures() {
+  try {
+    const snap = await getDocs(query(collection(db,'lectures'), orderBy('date','desc')));
+    if (snap.empty) return;
+    const tbody = document.getElementById('lectures-tbody');
+    if (!tbody) return;
+    snap.forEach(d => {
+      const r = d.data();
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><div class="lec-date">${r.date||''}</div></td>
+        <td>${r.title||''}</td>
+        <td><div class="lec-org">${r.org||''}</div></td>`;
+      tbody.insertBefore(tr, tbody.firstChild);
+    });
+  } catch(e) { /* Firestore 미설정 시 무시 */ }
+})();
+
+/* ── Firestore 저서 동적 추가 ── */
+(async function loadBooks() {
+  try {
+    const snap = await getDocs(query(collection(db,'books'), orderBy('year','desc')));
+    if (snap.empty) return;
+    const grid = document.getElementById('books-grid');
+    if (!grid) return;
+    const icons = ['📘','📗','📕','📙','📒'];
+    let i = 3;
+    snap.forEach(d => {
+      const r = d.data();
+      const card = document.createElement('div');
+      card.className = 'book-card';
+      card.innerHTML = `
+        <div class="book-spine"></div>
+        <div class="book-inner">
+          <div class="book-index">BOOK ${String(++i).padStart(2,'0')}</div>
+          <div class="book-icon">${icons[i%icons.length]}</div>
+          <div class="book-title">${r.title||''}</div>
+          ${r.desc ? `<div style="font-size:14px;color:#888;margin-top:8px;">${r.desc}</div>` : ''}
+          ${r.year ? `<div style="font-size:13px;color:#aaa;margin-top:6px;">${r.year}${r.publisher?' · '+r.publisher:''}</div>` : ''}
+        </div>`;
+      grid.appendChild(card);
+    });
+  } catch(e) { /* Firestore 미설정 시 무시 */ }
+})();
 
 /* ── EmailJS 초기화 ── */
 // ⚠️ EmailJS 설정 후 아래 값을 교체하세요 (emailjs.com → Account → Public Key)
