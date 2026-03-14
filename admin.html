@@ -483,7 +483,21 @@
     }
   });
   document.getElementById('btnGoogleLogin').addEventListener('click', async () => {
-    try { await signInWithPopup(auth, provider); } catch(e) { console.error(e); }
+    const errEl = document.getElementById('loginError');
+    errEl.style.display = 'none';
+    try {
+      await signInWithPopup(auth, provider);
+    } catch(e) {
+      console.error(e);
+      const msg = {
+        'auth/popup-blocked':        '팝업이 차단됐습니다. 브라우저 팝업 차단을 해제해 주세요.',
+        'auth/popup-closed-by-user': '로그인 창이 닫혔습니다. 다시 시도해 주세요.',
+        'auth/unauthorized-domain':  '이 도메인이 Firebase에 등록되지 않았습니다. Firebase Console에서 도메인을 추가해 주세요.',
+        'auth/cancelled-popup-request': '이전 로그인 요청이 취소됐습니다. 다시 시도해 주세요.',
+      }[e.code] || `로그인 오류: ${e.message}`;
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+    }
   });
   document.getElementById('btnLogout').addEventListener('click', () => signOut(auth));
 

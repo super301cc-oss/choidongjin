@@ -30,13 +30,14 @@ nav{
   backdrop-filter:blur(16px);
   border-bottom:2px solid var(--lg-red);
   padding:0 36px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:center;position:relative;
   height:var(--nav-h);
   box-shadow:0 2px 24px rgba(165,0,52,0.3);
 }
 .nav-brand{
   font-family:'Noto Serif KR',serif;font-size:26px;font-weight:700;
   color:#fff;letter-spacing:-0.5px;white-space:nowrap;flex-shrink:0;
+  position:absolute;left:36px;
 }
 .nav-brand span{color:var(--lg-red);}
 .nav-links{display:flex;gap:0;list-style:none;flex-wrap:nowrap;}
@@ -166,7 +167,7 @@ nav{
 }
 
 /* ══ CONTAINER ══ */
-.container{max-width:1100px;margin:0 auto;padding:0 40px;}
+.container{max-width:1400px;margin:0 auto;padding:0 40px;}
 
 /* ══ SECTION COMMON ══ */
 section{padding:80px 0;}
@@ -205,13 +206,14 @@ section:nth-child(odd){background:var(--lg-bg);}
 
 /* ══ BOOKS ══ */
 .books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.book-card{background:var(--lg-white);border:1px solid var(--lg-border);border-radius:3px;overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column;}
-.book-card:hover{transform:translateY(-7px);box-shadow:0 24px 52px rgba(165,0,52,0.13);border-color:var(--lg-red);}
-.book-spine{width:100%;height:6px;background:linear-gradient(90deg,var(--lg-red),var(--lg-red2));}
-.book-inner{padding:30px 26px;flex:1;display:flex;flex-direction:column;}
+.book-card{background:transparent;border:none;border-radius:0;overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column;}
+.book-card:hover{transform:translateY(-7px);}
+.book-spine{display:none;}
+.book-inner{padding:16px 4px;flex:1;display:flex;flex-direction:column;}
 .book-index{font-size:17px;font-weight:700;letter-spacing:3px;color:var(--lg-red);margin-bottom:16px;}
 .book-icon{font-size:44px;margin-bottom:16px;line-height:1;}
-.book-title{font-family:'Noto Serif KR',serif;font-size:23px;font-weight:700;color:var(--lg-dark);line-height:1.65;flex:1;}
+.book-title{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--lg-dark);line-height:1.4;margin-bottom:6px;}
+.book-sub{font-size:15px;color:#888;line-height:1.5;}
 
 /* ══ PAPERS ══ */
 .papers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
@@ -447,6 +449,8 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
     <li><a href="#certs">자격 사항</a></li>
     <li><a href="#awards">수상·활동</a></li>
     <li><a href="#contact">연락처 &amp; 소통</a></li>
+    <li><a href="#lecture-content">강의 내용</a></li>
+    <li><a href="#lecture-apply">강의 접수</a></li>
   </ul>
 </nav>
 
@@ -644,6 +648,171 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
 </section>
 
 
+<!-- ④ 강의 내용 (Curriculum) -->
+<section id="lecture-content" style="background:#f8f9fb;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">CURRICULUM</div>
+        <div class="section-title">AI 강의 <em>10개 커리큘럼</em></div>
+        <p style="color:#666;font-size:16px;margin-top:12px;">기업 IT 전략 경험 + AI 활용 능력 + 교육 경험의 결합</p>
+      </div>
+      <div class="section-num">10</div>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;">
+
+      <!-- 1 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">01</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI LITERACY</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">생성형 AI 리터러시</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">AI 교육의 기본 과정</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">AI 역사와 발전 · ChatGPT/Gemini/Claude 비교 · AI 활용 윤리 · AI 시대의 직업 변화 · 기본 프롬프트 작성</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:var(--lg-red);font-weight:600;">교육 대상: 공무원 · 일반 직장인 · 대학생</div>
+      </div>
+
+      <!-- 2 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">02</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">PROMPT ENGINEERING</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">프롬프트 엔지니어링 실무</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">AI 활용 능력을 결정하는 핵심 과정</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">프롬프트 구조 · 역할 기반 프롬프트 · Chain of Thought · 업무 자동화 프롬프트 · 보고서 생성 프롬프트</div>
+      </div>
+
+      <!-- 3 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">03</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI PRODUCTIVITY</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 업무 생산성 혁신</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">직장인 생산성 향상 교육</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">AI 문서 작성 · 보고서 자동 생성 · 프레젠테이션 생성 · 이메일 자동 작성 · 업무 자동화</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">활용 도구: <strong>ChatGPT · Canva · Notion AI</strong></div>
+      </div>
+
+      <!-- 4 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">04</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI RESEARCH</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 리서치 혁명</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">AI를 이용한 연구와 자료 분석 교육 (Genspark + NotebookLM)</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">AI 검색 구조 · AI 리서치 자동화 · 시장 조사 · 논문 분석</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:var(--lg-red);font-weight:600;">시장조사 보고서: 기존 3일 → AI 활용 1시간</div>
+      </div>
+
+      <!-- 5 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">05</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI CONTENT</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 콘텐츠 제작</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">콘텐츠 제작 자동화 과정</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">블로그 글 작성 · 마케팅 콘텐츠 제작 · 영상 스크립트 작성 · SNS 콘텐츠 생성</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">활용 도구: <strong>ChatGPT · Midjourney · Suno AI</strong></div>
+      </div>
+
+      <!-- 6 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">06</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">LILYS AI</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">릴리스 AI 활용 교육</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">영상과 강의 콘텐츠 분석 과정</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">유튜브 영상 요약 · 강의 콘텐츠 분석 · 학습 정리 자동화 · 교육 콘텐츠 제작</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">활용 도구: <strong>Lilys AI</strong></div>
+      </div>
+
+      <!-- 7 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">07</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI AUTOMATION</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 자동화 전략</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">기업 업무 자동화 교육</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">RPA 개념 · AI Agent · 업무 자동화 설계 · 기업 자동화 사례</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">활용 도구: <strong>UiPath · Zapier · Make</strong></div>
+      </div>
+
+      <!-- 8 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">08</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">GEO STRATEGY</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 검색과 GEO 전략</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">Zero-Click 시대 대응 전략 교육</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">AI 검색 구조 · Google AI Overview · GEO (Generative Engine Optimization) · AI 추천 콘텐츠 전략</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:var(--lg-red);font-weight:600;">SEO 시대 → 검색 최적화 &nbsp;|&nbsp; GEO 시대 → AI 추천 최적화</div>
+      </div>
+
+      <!-- 9 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">09</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">DIGITAL TRANSFORMATION</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 기반 디지털 전환 (DX)</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">기업 혁신 전략 교육</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">디지털 전환 전략 · 데이터 기반 경영 · AI 도입 전략 · 조직 변화</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">사례: <strong>A2D (Analog to Digital) 혁신</strong></div>
+      </div>
+
+      <!-- 10 -->
+      <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <span style="background:var(--lg-red);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">10</span>
+          <span style="font-size:11px;color:#999;font-weight:600;letter-spacing:1px;">AI INSTRUCTOR</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 강사 양성과정</div>
+        <div style="font-size:13px;color:#888;margin-bottom:14px;">AI 교육 전문가 과정</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">AI 강의 설계 · 강의 콘텐츠 제작 · 프롬프트 교육 방법 · AI 강사 브랜드 전략</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;">활용 도구: <strong>ChatGPT · Canva · Midjourney · Suno AI</strong></div>
+      </div>
+
+    </div>
+
+    <!-- 강의 체계 구조 -->
+    <div class="reveal" style="margin-top:48px;background:#fff;border-radius:16px;padding:36px;border:1px solid #eee;">
+      <div style="text-align:center;font-size:20px;font-weight:700;color:var(--lg-dark);margin-bottom:28px;">강의 체계 구조 <span style="color:var(--lg-red);">4단계</span></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
+        <div style="background:#f8f9fb;border-radius:10px;padding:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--lg-red);margin-bottom:8px;">1단계</div>
+          <div style="font-size:15px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 이해</div>
+          <div style="font-size:13px;color:#666;line-height:1.7;">AI 리터러시<br>프롬프트 엔지니어링</div>
+        </div>
+        <div style="background:#f8f9fb;border-radius:10px;padding:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--lg-red);margin-bottom:8px;">2단계</div>
+          <div style="font-size:15px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 활용</div>
+          <div style="font-size:13px;color:#666;line-height:1.7;">AI 생산성<br>AI 콘텐츠 제작</div>
+        </div>
+        <div style="background:#f8f9fb;border-radius:10px;padding:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--lg-red);margin-bottom:8px;">3단계</div>
+          <div style="font-size:15px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 업무 혁신</div>
+          <div style="font-size:13px;color:#666;line-height:1.7;">AI 자동화<br>AI 리서치</div>
+        </div>
+        <div style="background:#f8f9fb;border-radius:10px;padding:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--lg-red);margin-bottom:8px;">4단계</div>
+          <div style="font-size:15px;font-weight:700;color:var(--lg-dark);margin-bottom:6px;">AI 전략</div>
+          <div style="font-size:13px;color:#666;line-height:1.7;">AI 검색 전략<br>AI 디지털 전환</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ④ 강의 이력 (Lectures) -->
 <section id="lectures">
   <div class="container">
@@ -709,30 +878,42 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
       <div class="section-num">05</div>
     </div>
     <div class="books-grid reveal" id="books-grid">
-      <div class="book-card">
-        <div class="book-spine"></div>
+      <a class="book-card" href="https://www.yes24.com/product/goods/168229293" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer;">
         <div class="book-inner">
           <div class="book-index">BOOK 01</div>
-          <div class="book-icon">📘</div>
-          <div class="book-title">이것이 생성형 AI 지도자다<br>— 릴리스 AI 300배 활용하기</div>
+          <div class="book-title">이것이 생성형AI 지도사다</div>
+          <div class="book-sub">— 릴리스 AI 300배 활용하기</div>
         </div>
-      </div>
-      <div class="book-card">
-        <div class="book-spine"></div>
+        <div style="overflow:hidden;border-radius:6px;box-shadow:0 0 0 2px rgba(30,60,130,0.25),0 4px 12px rgba(30,60,130,0.15);">
+          <img src="book01.jpg" alt="이것이 생성형AI 지도사다"
+            style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;"
+            onerror="this.parentElement.style.display='none'">
+        </div>
+      </a>
+      <a class="book-card" href="https://www.yes24.com/product/goods/164508412" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer;">
         <div class="book-inner">
           <div class="book-index">BOOK 02</div>
-          <div class="book-icon">📗</div>
-          <div class="book-title">AI 리터러시 인사이트 9<br>— IT와 AI 리터러시</div>
+          <div class="book-title">AI 리터러시 인사이트 10</div>
+          <div class="book-sub">— IT와 AI 리터러시</div>
         </div>
-      </div>
-      <div class="book-card">
-        <div class="book-spine"></div>
+        <div style="overflow:hidden;border-radius:6px;box-shadow:0 0 0 2px rgba(30,60,130,0.25),0 4px 12px rgba(30,60,130,0.15);">
+          <img src="book02.jpg" alt="AI 리터러시 인사이트 10"
+            style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;"
+            onerror="this.parentElement.style.display='none'">
+        </div>
+      </a>
+      <a class="book-card" href="https://www.youtube.com/watch?v=W3zxz5SpYH4&t=3s" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer;">
         <div class="book-inner">
           <div class="book-index">BOOK 03</div>
-          <div class="book-icon">📕</div>
-          <div class="book-title">생성형AI에게 추천받는<br>'GEO Generative Engine Optimization' 비법 공개</div>
+          <div class="book-title">AI가 고객을 데려오는 시대</div>
+          <div class="book-sub">— GEO마케팅 완전정복 : 제로 클릭(Zero-Click) 시대의 도래</div>
         </div>
-      </div>
+        <div style="overflow:hidden;border-radius:6px;box-shadow:0 0 0 2px rgba(30,60,130,0.25),0 4px 12px rgba(30,60,130,0.15);">
+          <img src="book03.jpg" alt="AI가 고객을 데려오는 시대"
+            style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;"
+            onerror="this.parentElement.style.display='none'">
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -818,15 +999,10 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
     <div class="reveal">
       <div class="awards-section-label">수상</div>
       <div class="award-cards">
-        <div class="award-card">
+        <div class="award-card" style="max-width:100%;">
           <div class="award-year">AWARD · 2021</div>
-          <div class="award-name">과학기술정보통신부 장관표창</div>
-          <div class="award-issuer">과학기술정보통신부</div>
-        </div>
-        <div class="award-card">
-          <div class="award-year">AWARD · 2021</div>
-          <div class="award-name">대한민국 ICT Innovation Awards</div>
-          <div class="award-issuer">ICT 혁신 공로 수상</div>
+          <div class="award-name">과학기술정보통신부 장관표창 · 대한민국 ICT Innovation Awards</div>
+          <div class="award-issuer">과학기술정보통신부 · ICT 혁신 공로 수상</div>
         </div>
       </div>
 
@@ -880,7 +1056,7 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
           <div class="contact-card">
             <div class="contact-card-icon">✉️</div>
             <div class="contact-card-label">이메일</div>
-            <div class="contact-card-val" style="font-size:15px;"><a href="mailto:super301c@naver.com">super301c@naver.com</a><br><a href="mailto:super301cc@gmail.com">super301cc@gmail.com</a></div>
+            <div class="contact-card-val" style="font-size:15px;"><a href="#" onclick="window.open('https://mail.naver.com/write?to=super301c@naver.com','navermail','width=1000,height=750');return false;">super301c@naver.com</a><br><a href="#" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=super301cc@gmail.com','gmail','width=1000,height=750');return false;">super301cc@gmail.com</a></div>
           </div>
           <div class="contact-card">
             <div class="contact-card-icon">🏢</div>
@@ -893,14 +1069,26 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
             <div class="contact-card-val" style="font-size:18px;">서울 양천구 목동동로 100<br>1304동 1303호</div>
           </div>
         </div>
-        <div style="padding:20px 24px;background:var(--lg-light);border:1px solid rgba(165,0,52,0.15);display:flex;gap:36px;align-items:center;flex-wrap:wrap;">
+        <div style="padding:20px 24px;background:var(--lg-light);border:1px solid rgba(165,0,52,0.15);display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap;">
           <div>
-            <div style="font-size:17px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">사업자번호</div>
-            <div style="font-size:23px;font-weight:700;color:var(--lg-dark);">765-12-02502</div>
+            <div style="font-size:13px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">사업자번호</div>
+            <div style="font-size:20px;font-weight:700;color:var(--lg-dark);">756-12-02502</div>
           </div>
           <div>
-            <div style="font-size:17px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">생년월일</div>
-            <div style="font-size:23px;font-weight:700;color:var(--lg-dark);">1966. 12. 09</div>
+            <div style="font-size:13px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">상호</div>
+            <div style="font-size:20px;font-weight:700;color:var(--lg-dark);">우리나라마켓</div>
+          </div>
+          <div>
+            <div style="font-size:13px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">개업일</div>
+            <div style="font-size:20px;font-weight:700;color:var(--lg-dark);">2023. 02. 21</div>
+          </div>
+          <div>
+            <div style="font-size:13px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">업태 / 종목</div>
+            <div style="font-size:16px;font-weight:600;color:var(--lg-dark);">AI 교육업 / 도매 및 소매업 / 전자상거래 중개업</div>
+          </div>
+          <div style="flex-basis:100%;">
+            <div style="font-size:13px;color:var(--lg-red);font-weight:700;letter-spacing:2px;margin-bottom:4px;">사업장소재지</div>
+            <div style="font-size:15px;font-weight:600;color:var(--lg-dark);">경기도 양평군 옥천면 신복리 783-3</div>
           </div>
         </div>
       </div>
@@ -987,32 +1175,37 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
     </div>
 
     <!-- 문의 폼 -->
-    <div class="reveal" style="margin-top:48px;">
-      <div style="font-size:13px;letter-spacing:3px;color:var(--lg-red);font-weight:700;margin-bottom:8px;">INQUIRY FORM</div>
-      <div style="font-size:28px;font-weight:700;color:var(--lg-dark);margin-bottom:28px;">강의 문의 <em style="font-style:normal;color:var(--lg-red);">보내기</em></div>
+    <div id="lecture-apply" class="reveal" style="margin-top:48px;">
+      <div class="section-header" style="margin-bottom:28px;">
+        <div>
+          <div style="font-size:19px;letter-spacing:3px;color:var(--lg-red);font-weight:700;margin-bottom:8px;">INQUIRY FORM</div>
+          <div style="font-size:42px;font-weight:700;color:var(--lg-dark);"><em style="font-style:normal;color:var(--lg-red);">강의 접수</em></div>
+        </div>
+        <div class="section-num">11</div>
+      </div>
       <form id="contactForm" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:13px;font-weight:700;color:var(--lg-gray);">이름 *</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">이름 *</label>
           <input id="cf-name" type="text" placeholder="홍길동" required
-            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:15px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
             onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'" />
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:13px;font-weight:700;color:var(--lg-gray);">소속</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">소속</label>
           <input id="cf-org" type="text" placeholder="회사 / 기관명"
-            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:15px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
             onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'" />
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:13px;font-weight:700;color:var(--lg-gray);">연락처 *</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">연락처 *</label>
           <input id="cf-tel" type="tel" placeholder="010-0000-0000" required
-            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:15px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
             onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'" />
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:13px;font-weight:700;color:var(--lg-gray);">문의 유형 *</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">문의 유형 *</label>
           <select id="cf-type" required
-            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:15px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;cursor:pointer;">
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;cursor:pointer;">
             <option value="" disabled selected>유형 선택</option>
             <option value="강의 의뢰">강의 의뢰</option>
             <option value="원고·저서 관련">원고·저서 관련</option>
@@ -1021,18 +1214,18 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
           </select>
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;grid-column:1/-1;">
-          <label style="font-size:13px;font-weight:700;color:var(--lg-gray);">문의 내용 *</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">문의 내용 *</label>
           <textarea id="cf-message" rows="5" placeholder="문의하실 내용을 입력해 주세요." required
-            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:15px;font-family:'Noto Sans KR',sans-serif;outline:none;resize:vertical;transition:border-color .2s;"
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;resize:vertical;transition:border-color .2s;"
             onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'"></textarea>
         </div>
         <div style="grid-column:1/-1;">
-          <p style="font-size:12px;color:var(--lg-gray);margin-bottom:16px;">※ 수집 항목: 이름, 소속, 연락처 (강의 문의 처리 목적으로만 활용됩니다)</p>
+          <p style="font-size:18px;color:var(--lg-gray);margin-bottom:16px;">※ 수집 항목: 이름, 소속, 연락처 (강의 문의 처리 목적으로만 활용됩니다)</p>
           <button type="submit" id="cf-submit"
-            style="background:var(--lg-red);color:#fff;padding:14px 36px;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;">
-            문의 보내기
+            style="background:var(--lg-red);color:#fff;padding:14px 36px;border:none;border-radius:8px;font-size:24px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;">
+            강의 접수
           </button>
-          <span id="cf-result" style="margin-left:16px;font-size:14px;font-weight:600;"></span>
+          <span id="cf-result" style="margin-left:16px;font-size:21px;font-weight:600;"></span>
         </div>
       </form>
     </div>
@@ -1051,7 +1244,7 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
           </div>
         </a>
 
-        <a href="mailto:super301c@naver.com" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.07);border-radius:12px;border:1px solid rgba(255,255,255,0.1);text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(165,0,52,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <a href="#" onclick="window.open('https://mail.naver.com/write?to=super301c@naver.com','navermail','width=1000,height=750');return false;" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.07);border-radius:12px;border:1px solid rgba(255,255,255,0.1);text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(165,0,52,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
           <span style="font-size:24px;">✉️</span>
           <div>
             <div style="font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:2px;font-weight:700;">NAVER MAIL</div>
@@ -1059,7 +1252,7 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
           </div>
         </a>
 
-        <a href="mailto:super301cc@gmail.com" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.07);border-radius:12px;border:1px solid rgba(255,255,255,0.1);text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(165,0,52,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <a href="#" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=super301cc@gmail.com','gmail','width=1000,height=750');return false;" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.07);border-radius:12px;border:1px solid rgba(255,255,255,0.1);text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(165,0,52,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
           <span style="font-size:24px;">📧</span>
           <div>
             <div style="font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:2px;font-weight:700;">GMAIL</div>
@@ -1118,8 +1311,8 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
 <footer>
   <div class="footer-logo"><span>Dr.</span> 최동진</div>
   <p><strong>생성형 AI 전문강사 · 숭실대학교 IT정책경영학 박사</strong></p>
-  <p style="margin-top:6px;">LG U+ 책임 · 생성형AI교육지도사협회 이사 · 사업자번호 765-12-02502</p>
-  <p style="margin-top:6px;">📱 010-8080-3603 &nbsp;|&nbsp; ✉️ <a href="mailto:super301c@naver.com">super301c@naver.com</a> &nbsp;|&nbsp; <a href="mailto:super301cc@gmail.com">super301cc@gmail.com</a></p>
+  <p style="margin-top:6px;">LG U+ 책임 · 생성형AI교육지도사협회 이사 · 사업자번호 756-12-02502</p>
+  <p style="margin-top:6px;">📱 010-8080-3603 &nbsp;|&nbsp; ✉️ <a href="#" onclick="window.open('https://mail.naver.com/write?to=super301c@naver.com','navermail','width=1000,height=750');return false;">super301c@naver.com</a> &nbsp;|&nbsp; <a href="#" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=super301cc@gmail.com','gmail','width=1000,height=750');return false;">super301cc@gmail.com</a></p>
   <p style="margin-top:18px;font-size:18px;opacity:0.32;">© 2025 Choi Dong-Jin Ph.D. All rights reserved.</p>
 </footer>
 
@@ -1232,10 +1425,37 @@ const db  = getFirestore(app);
 // ⚠️ EmailJS 설정 후 아래 값을 교체하세요 (emailjs.com → Account → Public Key)
 const EMAILJS_PUBLIC_KEY   = 'nmwqoFL7PQ8YM7AKK';
 const EMAILJS_SERVICE_ID   = 'service_x9q3omk';
-const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';  // ← 교체 필요
+const EMAILJS_TEMPLATE_ID  = 'template_yztrnpg';
 
 if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+/* ── CoolSMS(Solapi) 문자 알림 설정 ── */
+const SOLAPI_API_KEY    = 'NCSDBMHGVKQXVXWY';              // solapi.com → API Key
+const SOLAPI_API_SECRET = 'AMQY66DGEG0JAMHOCPAB56M8BWODZXET'; // solapi.com → API Secret
+const SOLAPI_FROM       = '01080803603';             // 발신번호 (Solapi에 등록된 번호)
+const SOLAPI_TO         = '01080803603';             // 수신번호
+
+async function _solapiSign(secret, msg) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), {name:'HMAC',hash:'SHA-256'}, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(msg));
+  return Array.from(new Uint8Array(sig)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function sendSMS(text) {
+  if (!SOLAPI_API_KEY || !SOLAPI_API_SECRET) return;
+  const date = new Date().toISOString();
+  const salt = Math.random().toString(36).slice(2, 12);
+  const signature = await _solapiSign(SOLAPI_API_SECRET, date + salt);
+  const auth = `HMAC-SHA256 apiKey=${SOLAPI_API_KEY}, date=${date}, salt=${salt}, signature=${signature}`;
+  const res = await fetch('https://api.coolsms.co.kr/messages/v4/send', {
+    method: 'POST',
+    headers: { 'Authorization': auth, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: { to: SOLAPI_TO, from: SOLAPI_FROM, text } })
+  });
+  if (!res.ok) throw new Error(await res.text());
 }
 
 /* ── 방문자 자동 기록 (IP·위치 포함) ── */
@@ -1316,8 +1536,20 @@ if (form) {
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...mailParams, to_email: 'super301c@naver.com' }),
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...mailParams, to_email: 'super301cc@gmail.com' })
           ]);
+          console.log('✅ 이메일 발송 성공');
         } catch(mailErr) {
-          console.warn('이메일 알림 전송 실패 (Firestore는 저장됨):', mailErr);
+          console.error('❌ 이메일 전송 실패:', mailErr);
+          result.style.color = '#e67e22';
+          result.textContent = '✅ 문의는 접수됐으나 이메일 알림 전송에 실패했습니다. (오류: ' + (mailErr.text || mailErr.message || JSON.stringify(mailErr)) + ')';
+        }
+
+        /* 3) CoolSMS 문자 알림 */
+        try {
+          const smsText = `[강의문의]\n이름: ${contactData.name}\n연락처: ${contactData.tel}\n소속: ${contactData.org}\n유형: ${contactData.type}\n내용: ${contactData.message.slice(0,50)}${contactData.message.length>50?'...':''}`;
+          await sendSMS(smsText);
+          console.log('✅ SMS 발송 성공');
+        } catch(smsErr) {
+          console.error('❌ SMS 전송 실패:', smsErr);
         }
       }
 
@@ -1330,7 +1562,7 @@ if (form) {
       console.error(err);
     } finally {
       submit.disabled = false;
-      submit.textContent = '문의 보내기';
+      submit.textContent = '강의 접수';
     }
   });
 }
