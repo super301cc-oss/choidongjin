@@ -1235,14 +1235,26 @@ footer{background:var(--lg-dark);color:rgba(255,255,255,0.45);text-align:center;
             onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'" />
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">문의 유형 *</label>
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">이메일</label>
+          <input id="cf-email" type="email" placeholder="example@email.com"
+            style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--lg-red)'" onblur="this.style.borderColor='var(--lg-border)'" />
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;grid-column:1/-1;">
+          <label style="font-size:19px;font-weight:700;color:var(--lg-gray);">신청 과목 *</label>
           <select id="cf-type" required
             style="padding:12px 16px;border:1.5px solid var(--lg-border);border-radius:8px;font-size:22px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;cursor:pointer;">
-            <option value="" disabled selected>유형 선택</option>
-            <option value="강의 의뢰">강의 의뢰</option>
-            <option value="원고·저서 관련">원고·저서 관련</option>
-            <option value="심사위원 위촉">심사위원 위촉</option>
-            <option value="기타">기타</option>
+            <option value="" disabled selected>과목 선택</option>
+            <option value="01. 생성형 AI 리터러시">01. 생성형 AI 리터러시</option>
+            <option value="02. 프롬프트 엔지니어링 실무">02. 프롬프트 엔지니어링 실무</option>
+            <option value="03. AI 업무 생산성 혁신">03. AI 업무 생산성 혁신</option>
+            <option value="04. AI 리서치 혁명">04. AI 리서치 혁명</option>
+            <option value="05. AI 콘텐츠 제작">05. AI 콘텐츠 제작</option>
+            <option value="06. 릴리스 AI 활용 교육">06. 릴리스 AI 활용 교육</option>
+            <option value="07. AI 자동화 전략">07. AI 자동화 전략</option>
+            <option value="08. AI 검색과 GEO 전략">08. AI 검색과 GEO 전략</option>
+            <option value="09. AI 기반 디지털 전환 (DX)">09. AI 기반 디지털 전환 (DX)</option>
+            <option value="10. AI 강사 양성과정">10. AI 강사 양성과정</option>
           </select>
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;grid-column:1/-1;">
@@ -1543,6 +1555,7 @@ if (form) {
       name:      document.getElementById('cf-name').value.trim(),
       org:       document.getElementById('cf-org').value.trim(),
       tel:       document.getElementById('cf-tel').value.trim(),
+      email:     document.getElementById('cf-email').value.trim(),
       type:      document.getElementById('cf-type').value,
       message:   document.getElementById('cf-message').value.trim(),
       read:      false,
@@ -1559,6 +1572,7 @@ if (form) {
           from_name:    contactData.name,
           from_org:     contactData.org,
           from_tel:     contactData.tel,
+          from_email:   contactData.email,
           inquiry_type: contactData.type,
           message:      contactData.message,
           submit_time:  new Date().toLocaleString('ko-KR')
