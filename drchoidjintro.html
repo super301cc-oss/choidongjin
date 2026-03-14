@@ -1470,10 +1470,15 @@ const db  = getFirestore(app);
 
 /* ── 강의 신청 버튼 → 폼 이동 + 과목 자동 선택 ── */
 function applyLecture(course) {
-  const sel = document.getElementById('cf-type');
-  if (sel) sel.value = course;
   const target = document.getElementById('lecture-apply');
-  if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  if (target) {
+    target.classList.add('visible');
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  setTimeout(function() {
+    const sel = document.getElementById('cf-type');
+    if (sel) sel.value = course;
+  }, 400);
 }
 
 /* ── EmailJS 초기화 ── */
