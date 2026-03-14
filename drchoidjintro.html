@@ -1410,6 +1410,19 @@ var io = new IntersectionObserver(function(entries){
   });
 }, {threshold: 0.07});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ── 강의 신청 버튼 → 폼 이동 + 과목 자동 선택 ── */
+function applyLecture(course) {
+  var target = document.getElementById('lecture-apply');
+  if (target) {
+    target.classList.add('visible');
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  setTimeout(function() {
+    var sel = document.getElementById('cf-type');
+    if (sel) sel.value = course;
+  }, 400);
+}
 </script>
 
 <!-- ── Firebase SDK ────────────────────────────────── -->
@@ -1467,19 +1480,6 @@ const db  = getFirestore(app);
     });
   } catch(e) { /* Firestore 미설정 시 무시 */ }
 })();
-
-/* ── 강의 신청 버튼 → 폼 이동 + 과목 자동 선택 ── */
-function applyLecture(course) {
-  const target = document.getElementById('lecture-apply');
-  if (target) {
-    target.classList.add('visible');
-    target.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-  setTimeout(function() {
-    const sel = document.getElementById('cf-type');
-    if (sel) sel.value = course;
-  }, 400);
-}
 
 /* ── EmailJS 초기화 ── */
 // ⚠️ EmailJS 설정 후 아래 값을 교체하세요 (emailjs.com → Account → Public Key)
