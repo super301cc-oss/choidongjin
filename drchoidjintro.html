@@ -1510,12 +1510,17 @@ async function sendSMS(text) {
   const salt = Math.random().toString(36).slice(2, 12);
   const signature = await _solapiSign(SOLAPI_API_SECRET, date + salt);
   const auth = `HMAC-SHA256 apiKey=${SOLAPI_API_KEY}, date=${date}, salt=${salt}, signature=${signature}`;
-  const res = await fetch('https://api.coolsms.co.kr/messages/v4/send', {
+  // 한글 기준 45자 초과 시 LMS, 이하 SMS
+  const msgType = text.length > 45 ? 'LMS' : 'SMS';
+  const body = { message: { to: SOLAPI_TO, from: SOLAPI_FROM, text, type: msgType } };
+  const res = await fetch('https://api.solapi.com/messages/v4/send', {
     method: 'POST',
     headers: { 'Authorization': auth, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: { to: SOLAPI_TO, from: SOLAPI_FROM, text } })
+    body: JSON.stringify(body)
   });
-  if (!res.ok) throw new Error(await res.text());
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(JSON.stringify(json));
+  console.log('Solapi response:', json);
 }
 
 /* ── 방문자 자동 기록 (IP·위치 포함) ── */
